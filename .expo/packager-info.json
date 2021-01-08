@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19003,
-  "packagerPid": 45345,
-  "expoServerNgrokUrl": "https://wm-jfb.anonymous.impunity.exp.direct",
-  "packagerNgrokUrl": "https://packager.wm-jfb.anonymous.impunity.exp.direct",
-  "ngrokPid": 45361
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
