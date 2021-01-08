@@ -6,7 +6,7 @@ export default function HomeScreen() {
         
         <View style={styles.background}>
             
-            <Text>Impunity</Text>
+            <Text>Impunity test</Text>
             <Button title="Run face scan" onPress={()=> console.log('hello') }/>
         </View>
     )
