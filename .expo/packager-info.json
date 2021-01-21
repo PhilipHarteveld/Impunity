@@ -3,7 +3,7 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": "https://wm-jfb.anonymous.impunity.exp.direct",
-  "packagerNgrokUrl": "https://packager.wm-jfb.anonymous.impunity.exp.direct",
-  "ngrokPid": 80059
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }

@@ -1,25 +1,30 @@
+//Import express.js module and create its variable. 
+const express=require('express'); 
+const app=express(); 
 
-const express = require('express')
-const {spawn} = require('child_process');
-const app = express()
-const port = 3000
-app.get('/', (req, res) => {
- 
- var dataToSend;
- // spawn new child process to call the python script
- const python = spawn('python', ['../../Python/drowsiness detection.py']);
- // collect data from script
- python.stdout.on('data', function (data) {
-  console.log('Pipe data from python script ...');
-  dataToSend = data.toString();
- });
- // in close event we are sure that stream from child process is closed
- python.on('close', (code) => {
- console.log(`child process close all stdio with code ${code}`);
- // send data to browser
- res.send(dataToSend)
- });
- 
-})
-app.listen(port, () => console.log(`Example app listening on port 
-${port}!`))
+//Import PythonShell module. 
+const {PythonShell} =require('python-shell'); 
+
+//Router to handle the incoming request. 
+app.get("/", (req, res, next)=>{ 
+	//Here are the option object in which arguments can be passed for the python_test.js. 
+	let options = { 
+		mode: 'text', 
+		pythonOptions: ['-u'], // get print results in real-time 
+		scriptPath: '../../python', //If you are having python_test.py script in same folder, then it's optional. 
+		args: [''] //An argument which can be accessed in the script using sys.argv[1] 
+	}; 
+	
+
+	PythonShell.run('main.py', options, function (err, result){ 
+		if (err) throw err; 
+		// result is an array consisting of messages collected 
+		//during execution of script. 
+		console.log('result: ', result.toString()); 
+		res.send(result.toString()) 
+	}); 
+}); 
+
+//Creates the server on default port 8000 and can be accessed through localhost:8000 
+const port=8000; 
+app.listen(port, ()=>console.log(`Server connected to ${port}`));
